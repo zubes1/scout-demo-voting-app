@@ -144,4 +144,59 @@ Let's fix by modifying package.json, replacing socket.io version from "^2.5.0" t
 <img width="1241" alt="image" src="https://github.com/ajeetraina/scout-demo-voting-app/assets/313480/665249be-843f-4141-a830-22a401d3a2b9">
 
 
+## Using Scout CLI
+
+
+## Introduce SBOMs and Provenance
+
+SBOMs and provenance are two important concepts in software supply chain security.
+
+- SBOMs (Software Bill of Materials) are a list of all the components that make up a software project. This includes the software code, as well as the libraries and dependencies that the code uses. SBOMs can be used to track the origin of software components and to identify potential security vulnerabilities.
+- Provenance is a record of the steps that were taken to create a software project. This includes the code that was written, the tools that were used, and the people who were involved. Provenance can be used to understand how a software project was created and to identify potential security vulnerabilities.
+
+```
+ cd scout-demo-voting-app/result
+ ````
+
+The command ```docker buildx b . -f Dockerfile --sbom=1 --provenance=1 -t ajeetraina/scout-demo-voting-app-result:attest --push``` will build a Docker image with both an SBOM and provenance. This will allow you to track the origin of the software components in the image and to identify potential security vulnerabilities.
+
+
+```
+ docker buildx b . -f Dockerfile --sbom=1 --provenance=1 -t ajeetraina/scout-demo-voting-app-result:attest --push
+```
+
+## Using Attestations
+
+Attestations are cryptographically signed statements that verify the provenance of a software artifact. 
+They can be used to ensure that the software artifact has not been tampered with and that it has been built from a trusted source.
+
+When you run the command ```docker scout cves ajeetraina/scout-demo-voting-app-result:attest```, Docker Scout will use attestations to verify the provenance of the image. This means that Docker Scout will check to make sure that the image has been built from a trusted source and that it has not been tampered with.
+
+```
+docker scout cves ajeetraina/scout-demo-voting-app-result:attest
+INFO New version 0.22.3 available (installed version is 0.20.0)
+    ✓ Provenance obtained from attestation
+    ✓ SBOM obtained from attestation, 520 packages indexed
+    ✓ Pulled
+    ✗ Detected 20 vulnerable packages with a total of 28 vulnerabilities
+
+   1C     1H     0M     0L  socket.io-parser 3.4.2
+pkg:npm/socket.io-parser@3.4.2
+
+Dockerfile (17:19)
+RUN npm ci \
+...
+...
+
+12 vulnerabilities found in 6 packages
+  LOW       7
+  MEDIUM    0
+  HIGH      3
+  CRITICAL  2
+```
+
+
+
+
+
 
