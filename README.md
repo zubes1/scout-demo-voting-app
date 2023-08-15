@@ -46,6 +46,8 @@ List of Known Vulnerabilities:
 |  5       | Worker(.Net)     |   | |
 
 
+## Scout for Vote
+
 
 Let's first look at the front-end web app service "scout-demo-voting-app-vote-1" first.
 
@@ -85,3 +87,21 @@ Don't forget to rebuild the container image by running the following command:
 ```
 
 <img width="1507" alt="image" src="https://github.com/ajeetraina/scout-demo-voting-app/assets/313480/df19c095-ff43-4a00-b60c-b3896ea6b4be">
+
+
+
+## Scout for Worker
+
+<img width="683" alt="image" src="https://github.com/ajeetraina/scout-demo-voting-app/assets/313480/e9b1b12c-d82b-44e4-8b65-aa3d07b21547">
+
+
+## Scout for Results
+
+
+
+Let's fix by modifying package.json, replacing socket.io version from "^2.5.0" to "^4.0.5"
+
+<img width="1241" alt="image" src="https://github.com/ajeetraina/scout-demo-voting-app/assets/313480/665249be-843f-4141-a830-22a401d3a2b9">
+
+
+
