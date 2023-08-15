@@ -173,7 +173,10 @@ They can be used to ensure that the software artifact has not been tampered with
 When you run the command ```docker scout cves ajeetraina/scout-demo-voting-app-result:attest```, Docker Scout will use attestations to verify the provenance of the image. This means that Docker Scout will check to make sure that the image has been built from a trusted source and that it has not been tampered with.
 
 ```
-docker scout cves ajeetraina/scout-demo-voting-app-result:attest
+docker scout cves ajeetraina/scout-demo-voting-app-result:attest --ignore-base
+```
+
+```
 INFO New version 0.22.3 available (installed version is 0.20.0)
     ✓ Provenance obtained from attestation
     ✓ SBOM obtained from attestation, 520 packages indexed
@@ -194,6 +197,8 @@ RUN npm ci \
   HIGH      3
   CRITICAL  2
 ```
+
+
 
 
 
