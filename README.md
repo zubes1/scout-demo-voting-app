@@ -34,6 +34,19 @@ The `vote` app will be running at [http://localhost:5000](http://localhost:5000)
 
 ## Docker Scout in Action
 
+List of Known Vulnerabilities:
+
+
+| S. No  |  Name of Service | Detected Vulnerabilites | Status |
+|----------|------------|---------| -----------|
+|  1       | redis      |  0C, 0H, 0M, 0L | Good |
+|  2       | Postgres   |  0C, 0H, 0M, 0L | Good |
+|  3       | Vote(Python)       |  0C, 1H, 4M, 11L | Need fix |
+|  4       | Result(Node)     |   | |
+|  5       | Worker(.Net)     |   | |
+
+
+
 Let's first look at the front-end web app service "scout-demo-voting-app-vote-1" first.
 
 
