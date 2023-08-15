@@ -36,14 +36,20 @@ The `vote` app will be running at [http://localhost:5000](http://localhost:5000)
 
 List of Known Vulnerabilities:
 
+```
+docker scout quickview scout-demo-voting-app-result
+docker scout quickview scout-demo-voting-app-vote
+docker scout quickview scout-demo-voting-app-worker
+```
+
 
 | S. No  |  Name of Service | Detected Vulnerabilites | Status |
 |----------|------------|---------| -----------|
 |  1       | redis      |  0C, 0H, 0M, 0L | Good |
 |  2       | Postgres   |  0C, 0H, 0M, 0L | Good |
 |  3       | Vote(Python)       |  0C, 1H, 4M, 11L | Need fix |
-|  4       | Result(Node)     |   | |
-|  5       | Worker(.Net)     |   | |
+|  4       | Result(Node)     | 2C, 3H,1M,24L  | |
+|  5       | Worker(.Net)     |  1C,0H,0M,25L | |
 
 
 ## Scout for Vote
@@ -92,10 +98,39 @@ Don't forget to rebuild the container image by running the following command:
 
 ## Scout for Worker
 
+
+Initial Status:
+
+```
+docker scout quickview scout-demo-voting-app-worker
+INFO New version 0.22.3 available (installed version is 0.20.0)
+    ✓ Image stored for indexing
+    ✓ Indexed 160 packages
+
+  Your image  scout-demo-voting-app-worker  │    1C     0H     0M    25L
+  Base image  debian:11-slim                │    0C     0H     0M    25L
+  Updated base image  debian:stable-slim    │    0C     0H     0M    17L
+                                            │                         -8
+```
+
 <img width="683" alt="image" src="https://github.com/ajeetraina/scout-demo-voting-app/assets/313480/e9b1b12c-d82b-44e4-8b65-aa3d07b21547">
 
 
 ## Scout for Results
+
+
+Initial Status:
+
+```
+docker scout quickview scout-demo-voting-app-result
+INFO New version 0.22.3 available (installed version is 0.20.0)
+    ✓ SBOM of image already cached, 525 packages indexed
+
+  Your image  scout-demo-voting-app-result  │    2C     3H     1M    24L
+  Base image  node:18-bookworm-slim         │    0C     0H     1M    17L
+  Updated base image  node:20-slim          │    0C     0H     0M    17L
+                                            │                  -1
+```
 
 
 
