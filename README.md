@@ -252,5 +252,11 @@ What's Next?
   Learn more about base image update recommendations → docker scout recommendations ajeetraina/scout-demo-voting-app-result:fix
 ```
 
+## Compare to image in prod
+
+```
+ docker scout compare ajeetraina/scout-demo-voting-app-result:fix --to-stream prod
+```
+
 
 
