@@ -32,4 +32,22 @@ docker compose up
 
 The `vote` app will be running at [http://localhost:5000](http://localhost:5000), and the `results` will be at [http://localhost:5001](http://localhost:5001).
 
-## 
+## Docker Scout in Action
+
+Let's first look at the front-end web app service "scout-demo-voting-app-vote-1" first.
+
+
+<img width="1142" alt="image" src="https://github.com/ajeetraina/scout-demo-voting-app/assets/313480/82ec2cd4-9d16-473c-974e-3305c1c3a676">
+
+
+
+
+
+<img width="1178" alt="image" src="https://github.com/ajeetraina/scout-demo-voting-app/assets/313480/b4569be2-66b1-462a-9a59-d8a142090880">
+
+
+Click on "Recommendation Fixes"
+
+
+<img width="1189" alt="image" src="https://github.com/ajeetraina/scout-demo-voting-app/assets/313480/2c71de3f-cf7e-452e-b768-00552476e5fd">
+
