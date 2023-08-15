@@ -198,8 +198,35 @@ RUN npm ci \
   CRITICAL  2
 ```
 
+## Update socket.io and run npm install
+
+Open package.json under result/ and change socket.io version to "4.05"
+Don't forget to run ```npm install```
 
 
+
+```
+docker build . -t ajeetrainascout-demo-voting-app-result:fix --load
+```
+
+<img width="1260" alt="image" src="https://github.com/ajeetraina/scout-demo-voting-app/assets/313480/1bd22474-5fa9-4f3f-98f2-b1363c27e9bb">
+
+## Use Recommendation and update base image
+
+Open Dockerfile under result/ and change it to 
+
+```
+ FROM node:20-slim
+```
+
+
+## Re-build the Docker Image
+
+```
+ docker build . -t ajeetraina/scout-demo-voting-app-result:fix --load
+```
+
+<img width="1246" alt="image" src="https://github.com/ajeetraina/scout-demo-voting-app/assets/313480/1655fea9-6128-4eb1-a5e7-fa3522044e5d">
 
 
 
