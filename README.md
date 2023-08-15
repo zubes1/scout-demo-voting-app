@@ -51,3 +51,28 @@ Click on "Recommendation Fixes"
 
 <img width="1189" alt="image" src="https://github.com/ajeetraina/scout-demo-voting-app/assets/313480/2c71de3f-cf7e-452e-b768-00552476e5fd">
 
+
+Select the tag you would like to see recommendations for. The list displays new recommended tags in descending order, where the top results are rated as most suitable.
+
+
+<img width="951" alt="image" src="https://github.com/ajeetraina/scout-demo-voting-app/assets/313480/b463add9-27c4-488c-a091-3532db432950">
+
+
+
+As you can see that the 3.11.4-alpine or 3.11.4-alpine3.1 is one image tag that fixes almost all high, critical, medium and low severity.
+Let's pick it up and update our Dockerfile accordingly, replacing 3.9-slim with 3.11.4-alpine base image.
+
+```
+# Using official python runtime base image
+#FROM python:3.9-slim
+
+FROM python:3.11-slim
+```
+
+Don't forget to rebuild the container image by running the following command:
+
+```
+ docker compose up -d --build
+```
+
+<img width="1507" alt="image" src="https://github.com/ajeetraina/scout-demo-voting-app/assets/313480/df19c095-ff43-4a00-b60c-b3896ea6b4be">
