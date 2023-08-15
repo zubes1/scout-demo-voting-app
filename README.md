@@ -136,6 +136,11 @@ INFO New version 0.22.3 available (installed version is 0.20.0)
 
 Let's fix by modifying package.json, replacing socket.io version from "^2.5.0" to "^4.0.5"
 
+```
+ docker compose down
+ docker compose up -d --build
+```
+
 <img width="1241" alt="image" src="https://github.com/ajeetraina/scout-demo-voting-app/assets/313480/665249be-843f-4141-a830-22a401d3a2b9">
 
 
