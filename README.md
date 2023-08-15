@@ -229,6 +229,28 @@ Open Dockerfile under result/ and change it to
 <img width="1246" alt="image" src="https://github.com/ajeetraina/scout-demo-voting-app/assets/313480/1655fea9-6128-4eb1-a5e7-fa3522044e5d">
 
 
+##
+
+```
+docker scout cves ajeetraina/scout-demo-voting-app-result:fix --ignore-base
+    ✓ SBOM of image already cached, 497 packages indexed
+    ✓ Ignoring packages and vulnerabilities from base image node
+    ✗ Detected 3 vulnerable packages with a total of 7 vulnerabilities
+
+
+...
+....
+
+
+7 vulnerabilities found in 3 packages
+  LOW       7
+  MEDIUM    0
+  HIGH      0
+  CRITICAL  0
+
+What's Next?
+  Learn more about base image update recommendations → docker scout recommendations ajeetraina/scout-demo-voting-app-result:fix
+```
 
 
 
