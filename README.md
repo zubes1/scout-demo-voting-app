@@ -55,12 +55,8 @@ Click on "Recommendation Fixes"
 Select the tag you would like to see recommendations for. The list displays new recommended tags in descending order, where the top results are rated as most suitable.
 
 
-<img width="951" alt="image" src="https://github.com/ajeetraina/scout-demo-voting-app/assets/313480/b463add9-27c4-488c-a091-3532db432950">
 
-
-
-As you can see that the 3.11.4-alpine or 3.11.4-alpine3.1 is one image tag that fixes almost all high, critical, medium and low severity.
-Let's pick it up and update our Dockerfile accordingly, replacing 3.9-slim with 3.11.4-alpine base image.
+Let's pick python:3.11-slim that fixes most of the C and H labelled vulnerabilities.
 
 ```
 # Using official python runtime base image
