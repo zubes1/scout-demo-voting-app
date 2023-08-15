@@ -48,8 +48,8 @@ docker scout quickview scout-demo-voting-app-worker
 |  1       | redis      |  0C, 0H, 0M, 0L | Good |
 |  2       | Postgres   |  0C, 0H, 0M, 0L | Good |
 |  3       | Vote(Python)       |  0C, 1H, 4M, 11L | Need fix |
-|  4       | Result(Node)     | 2C, 3H,1M,24L  | |
-|  5       | Worker(.Net)     |  1C,0H,0M,25L | |
+|  4       | Result(Node)     | 2C, 3H, 1M, 24L  | |
+|  5       | Worker(.Net)     |  1C, 0H, 0M, 25L | |
 
 
 ## Scout for Vote
