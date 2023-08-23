@@ -258,5 +258,17 @@ What's Next?
  docker scout compare ajeetraina/scout-demo-voting-app-result:fix --to-stream prod
 ```
 
+## Integration with Github Action
 
+There is already a workflow file created for vote, worker and result [here](https://github.com/dockersamples/scout-demo-voting-app/tree/main/.github/workflows). 
+Ensure that you make the following changes:
+- Replace IMAGE_NAME with your Docker Hub ID
+- Add DOCKER_HUB_USER and DOCKER_USER_PAT in GitHub Repo settings
+
+```
+ env:
+  IMAGE_NAME: yournamespace/scout-demo-voting-app-result
+  SHA: ${{ github.event.pull_request.head.sha || github.event.after }}
+  DOCKERFILE_PATH: vote/Dockerfile
+```
 
