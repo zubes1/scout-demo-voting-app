@@ -1,0 +1,87 @@
+trigger:
+- main
+
+resources:
+- repo: self
+
+variables:
+  tag: '$(Build.BuildId)'
+  vote_image: 'yournamespace/scout-demo-voting-app-vote'
+  result_image: 'yournamespace/scout-demo-voting-app-result'
+  worker_image: 'yournamespace/scout-demo-voting-app-worker'
+
+stages:
+- stage: Build
+  displayName: Build images
+  jobs:
+  - job: BuildResult
+    displayName: Build Result service
+    pool:
+      vmImage: ubuntu-latest
+    steps:
+    - task: Docker@2
+      displayName: Build an image
+      inputs:
+        command: build
+        dockerfile: '$(Build.SourcesDirectory)/result/Dockerfile' # Path to the Dockerfile for Result service
+        repository: $(result_image)
+        tags: |
+          $(tag)
+    - task: CmdLine@2
+      displayName: Find CVEs on image
+      inputs:
+        script: |
+          # Install the Docker Scout CLI
+          curl -sSfL https://raw.githubusercontent.com/docker/scout-cli/main/install.sh | sh -s --
+          # Login to Docker Hub required for Docker Scout CLI
+          docker login -u $(DOCKER_HUB_USER) -p $(DOCKER_HUB_PAT)
+          # Get a CVE report for the built image and fail the pipeline when critical or high CVEs are detected
+          docker scout cves $(result_image):$(tag) --exit-code --only-severity critical,high
+
+  - job: BuildWorker
+    displayName: Build Worker service
+    pool:
+      vmImage: ubuntu-latest
+    steps:
+    - task: Docker@2
+      displayName: Build an image
+      inputs:
+        command: build
+        dockerfile: '$(Build.SourcesDirectory)/worker/Dockerfile' # Path to the Dockerfile for Worker service
+        repository: $(worker_image)
+        tags: |
+          $(tag)
+    - task: CmdLine@2
+      displayName: Find CVEs on image
+      inputs:
+        script: |
+          # Install the Docker Scout CLI
+          curl -sSfL https://raw.githubusercontent.com/docker/scout-cli/main/install.sh | sh -s --
+          # Login to Docker Hub required for Docker Scout CLI
+          docker login -u $(DOCKER_HUB_USER) -p $(DOCKER_HUB_PAT)
+          # Get a CVE report for the built image and fail the pipeline when critical or high CVEs are detected
+          docker scout cves $(worker_image):$(tag) --exit-code --only-severity critical,high
+
+  - job: BuildVote
+    displayName: Build Vote service
+    pool:
+      vmImage: ubuntu-latest
+    steps:
+    - task: Docker@2
+      displayName: Build an image
+      inputs:
+        command: build
+        dockerfile: '$(Build.SourcesDirectory)/vote/Dockerfile' # Path to the Dockerfile for Vote service
+        repository: $(vote_image)
+        tags: |
+          $(tag)
+    - task: CmdLine@2
+      displayName: Find CVEs on image
+      inputs:
+        script: |
+          # Install the Docker Scout CLI
+          curl -sSfL https://raw.githubusercontent.com/docker/scout-cli/main/install.sh | sh -s --
+          # Login to Docker Hub required for Docker Scout CLI
+          docker login -u $(DOCKER_HUB_USER) -p $(DOCKER_HUB_PAT)
+          # Get a CVE report for the built image and fail the pipeline when critical or high CVEs are detected
+          docker scout cves $(vote_image):$(tag) --exit-code --only-severity critical,high
