@@ -8,7 +8,7 @@ on:
     branches: ["main"]
 
 env:
-  IMAGE_NAME: yournamespace/scout-demo-voting-app-worker
+  IMAGE_NAME: demonstrationorg/scout-demo-voting-app-worker
   SHA: ${{ github.event.pull_request.head.sha || github.event.after }}
   DOCKERFILE_PATH: vote/Dockerfile
 
