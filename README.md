@@ -260,10 +260,10 @@ What's Next?
 
 ## Integration with Github Action
 
-There is already a workflow file created for vote, worker and result [here](https://github.com/dockersamples/scout-demo-voting-app/tree/main/.github/workflows). 
+There is already a workflow file created for vote, worker and result [here](https://github.com/zubes1/scout-demo-voting-app/tree/main/.github/workflows). 
 Ensure that you make the following changes:
 - Replace IMAGE_NAME with your Docker Hub ID
-- Add DOCKER_HUB_USER and DOCKER_USER_PAT in GitHub Repo settings
+- Add DOCKER_USER and DOCKER_PAT in GitHub Repo settings
 
 ```
  env:
